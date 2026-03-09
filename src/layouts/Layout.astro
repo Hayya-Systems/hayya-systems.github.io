@@ -1,0 +1,89 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { getTranslations } from '../i18n/index';
+import type { SupportedLocale } from '../i18n/index';
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+  locale?: SupportedLocale;
+  currentPath?: string;
+}
+
+const {
+  title,
+  description,
+  locale = 'es',
+  currentPath = Astro.url.pathname,
+} = Astro.props;
+
+const t = getTranslations(locale);
+
+const pageTitle = title
+  ? `${title} — ${t.meta.siteName}`
+  : `${t.meta.siteName} | ${t.meta.tagline}`;
+
+const pageDescription = description ?? t.meta.description;
+---
+
+<!doctype html>
+<html lang={t.lang} dir={t.dir}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+
+    <title>{pageTitle}</title>
+    <meta name="description" content={pageDescription} />
+
+    <meta property="og:type"        content="website" />
+    <meta property="og:title"       content={pageTitle} />
+    <meta property="og:description" content={pageDescription} />
+    <meta property="og:site_name"   content={t.meta.siteName} />
+
+    <meta name="twitter:card"        content="summary" />
+    <meta name="twitter:title"       content={pageTitle} />
+    <meta name="twitter:description" content={pageDescription} />
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  </head>
+
+  <body>
+    <script src="../scripts/i18n-client.ts"></script>
+    <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+
+    <Header t={t} currentPath={currentPath} locale={locale} />
+
+    <main id="main-content" tabindex="-1">
+      <slot />
+    </main>
+
+    <Footer t={t} />
+  </body>
+</html>
+
+<style is:global>
+  .skip-link {
+    position: absolute;
+    top: -100%;
+    left: var(--space-4);
+    background: var(--color-primary);
+    color: var(--color-white);
+    padding: var(--space-2) var(--space-4);
+    border-radius: var(--radius-xs);
+    font-size: var(--text-sm);
+    font-weight: var(--font-weight-semibold);
+    z-index: 9999;
+    text-decoration: none;
+    transition: top var(--transition-fast);
+  }
+
+  .skip-link:focus { top: var(--space-4); }
+
+  main { padding-top: 68px; }
+</style>

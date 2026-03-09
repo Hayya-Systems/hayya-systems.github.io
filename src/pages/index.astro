@@ -1,0 +1,511 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ServiceCard from '../components/ServiceCard.astro';
+import ValueCard from '../components/ValueCard.astro';
+import { getTranslations } from '../i18n/index';
+
+const t = getTranslations('es');
+---
+
+<Layout currentPath="/">
+
+  <!-- HERO -->
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="hero__bg" aria-hidden="true">
+      <div class="hero__grid"></div>
+      <div class="hero__glow"></div>
+    </div>
+
+    <div class="container hero__inner">
+      <div class="hero__content">
+        <div class="hero__eyebrow">
+          <span class="hero__eyebrow-dot" aria-hidden="true"></span>
+          <span data-i18n="home.heroLabel">{t.home.heroLabel}</span>
+        </div>
+        <h1 class="hero__title" id="hero-title" data-i18n="home.heroTitle">{t.home.heroTitle}</h1>
+        <p class="hero__subtitle" data-i18n="home.heroSubtitle">{t.home.heroSubtitle}</p>
+        <div class="hero__actions">
+          <a href="/servicios" class="btn btn--primary" data-i18n="home.heroCta1">{t.home.heroCta1}</a>
+          <a href="/contacto"  class="btn btn--outline" data-i18n="home.heroCta2">{t.home.heroCta2}</a>
+        </div>
+      </div>
+
+      <div class="hero__card" aria-hidden="true">
+        <div class="hero__logo-display">
+          <p class="hero__card-tagline" data-i18n="meta.tagline">{t.meta.tagline}</p>
+        </div>
+        <div class="hero__card-stats">
+          <div class="hero__stat">
+            <span class="hero__stat-num">4</span>
+            <span class="hero__stat-label">Áreas de práctica</span>
+          </div>
+          <div class="hero__stat-sep" aria-hidden="true"></div>
+          <div class="hero__stat">
+            <span class="hero__stat-num">B2B</span>
+            <span class="hero__stat-label">Enfoque empresarial</span>
+          </div>
+          <div class="hero__stat-sep" aria-hidden="true"></div>
+          <div class="hero__stat">
+            <span class="hero__stat-num">360°</span>
+            <span class="hero__stat-label">Del análisis a la ejecución</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero__ticker" aria-hidden="true">
+      <div class="container">
+        <div class="hero__ticker-inner">
+          <span>Consultoría estratégica</span>
+          <span class="hero__ticker-sep"></span>
+          <span>Software especializado</span>
+          <span class="hero__ticker-sep"></span>
+          <span>Seguridad operativa</span>
+          <span class="hero__ticker-sep"></span>
+          <span>Productos digitales</span>
+          <span class="hero__ticker-sep"></span>
+          <span>Fintech</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="section" aria-labelledby="about-title">
+    <div class="container">
+      <div class="about-layout">
+        <div class="about-left">
+          <span class="section-label" data-i18n="home.aboutLabel">{t.home.aboutLabel}</span>
+          <h2 class="section-title" id="about-title" data-i18n="home.aboutTitle">{t.home.aboutTitle}</h2>
+          <p class="section-lead" data-i18n="home.aboutText1">{t.home.aboutText1}</p>
+          <p class="section-lead about-p2" data-i18n="home.aboutText2">{t.home.aboutText2}</p>
+          <a href="/quienes-somos" class="btn btn--outline-dark about-cta" data-i18n="home.aboutCta">
+            {t.home.aboutCta}
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
+            </svg>
+          </a>
+        </div>
+        <div class="about-right">
+          <div class="pillars">
+            <div class="pillar pillar--red">
+              <div class="pillar__bar"></div>
+              <div class="pillar__body">
+                <span class="pillar__name">Consultoría</span>
+                <span class="pillar__desc">Análisis estratégico y asesoría especializada</span>
+              </div>
+            </div>
+            <div class="pillar pillar--steel">
+              <div class="pillar__bar"></div>
+              <div class="pillar__body">
+                <span class="pillar__name">Tecnología</span>
+                <span class="pillar__desc">Software a medida para entornos de alta exigencia</span>
+              </div>
+            </div>
+            <div class="pillar pillar--neutral">
+              <div class="pillar__bar"></div>
+              <div class="pillar__body">
+                <span class="pillar__name">Ejecución</span>
+                <span class="pillar__desc">Del diagnóstico a la implementación efectiva</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="section bg-surface" aria-labelledby="services-title">
+    <div class="container">
+      <div class="section-header-row">
+        <div>
+          <span class="section-label" data-i18n="home.servicesLabel">{t.home.servicesLabel}</span>
+          <h2 class="section-title" id="services-title" data-i18n="home.servicesTitle">{t.home.servicesTitle}</h2>
+          <p class="section-lead" data-i18n="home.servicesLead">{t.home.servicesLead}</p>
+        </div>
+        <a href="/servicios" class="btn btn--outline-dark services-cta-link" data-i18n="home.servicesCta">
+          {t.home.servicesCta}
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
+          </svg>
+        </a>
+      </div>
+      <div class="grid-2">
+        <ServiceCard title={t.services.service1Title} description={t.services.service1Desc} index={0} i18nTitle="services.service1Title" i18nDesc="services.service1Desc" />
+        <ServiceCard title={t.services.service2Title} description={t.services.service2Desc} index={1} i18nTitle="services.service2Title" i18nDesc="services.service2Desc" />
+        <ServiceCard title={t.services.service3Title} description={t.services.service3Desc} index={2} i18nTitle="services.service3Title" i18nDesc="services.service3Desc" />
+        <ServiceCard title={t.services.service4Title} description={t.services.service4Desc} index={3} i18nTitle="services.service4Title" i18nDesc="services.service4Desc" />
+      </div>
+    </div>
+  </section>
+
+  <!-- VALUES -->
+  <section class="section" aria-labelledby="values-title">
+    <div class="container">
+      <div class="values-header">
+        <span class="section-label" data-i18n="home.valuesLabel">{t.home.valuesLabel}</span>
+        <h2 class="section-title" id="values-title" data-i18n="home.valuesTitle">{t.home.valuesTitle}</h2>
+      </div>
+      <div class="grid-3">
+        <ValueCard title={t.values.value1Title} description={t.values.value1Desc} index={0} i18nTitle="values.value1Title" i18nDesc="values.value1Desc" />
+        <ValueCard title={t.values.value2Title} description={t.values.value2Desc} index={1} i18nTitle="values.value2Title" i18nDesc="values.value2Desc" />
+        <ValueCard title={t.values.value3Title} description={t.values.value3Desc} index={2} i18nTitle="values.value3Title" i18nDesc="values.value3Desc" />
+        <ValueCard title={t.values.value4Title} description={t.values.value4Desc} index={3} i18nTitle="values.value4Title" i18nDesc="values.value4Desc" />
+        <ValueCard title={t.values.value5Title} description={t.values.value5Desc} index={4} i18nTitle="values.value5Title" i18nDesc="values.value5Desc" />
+        <ValueCard title={t.values.value6Title} description={t.values.value6Desc} index={5} i18nTitle="values.value6Title" i18nDesc="values.value6Desc" />
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT CTA -->
+  <section class="cta-band" aria-labelledby="cta-title">
+    <div class="cta-band__bg" aria-hidden="true"></div>
+    <div class="container">
+      <div class="cta-band__inner">
+        <span class="section-label cta-label" data-i18n="home.contactLabel">{t.home.contactLabel}</span>
+        <h2 class="cta-band__title" id="cta-title" data-i18n="home.contactTitle">{t.home.contactTitle}</h2>
+        <p class="cta-band__lead" data-i18n="home.contactLead">{t.home.contactLead}</p>
+        <div class="cta-band__actions">
+          <a href="/contacto" class="btn btn--primary" data-i18n="home.contactCta">{t.home.contactCta}</a>
+          <a href={`mailto:${t.footer.email}`} class="btn btn--outline">{t.footer.email}</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</Layout>
+
+<style>
+  /* ---- Hero ---- */
+  .hero {
+    position: relative;
+    background-color: var(--color-navy);
+    min-height: calc(100svh - 68px);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  .hero__bg { position: absolute; inset: 0; pointer-events: none; }
+
+  .hero__grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.018) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.018) 1px, transparent 1px);
+    background-size: 72px 72px;
+  }
+
+  .hero__glow {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 55% at 5% 65%, rgba(200, 32, 43, 0.09), transparent),
+      radial-gradient(ellipse 50% 60% at 90% 15%, rgba(47, 68, 104, 0.28), transparent),
+      linear-gradient(180deg, transparent 55%, rgba(8, 15, 28, 0.85) 100%);
+  }
+
+  .hero__inner {
+    position: relative;
+    z-index: 1;
+    flex: 1;
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: var(--space-16);
+    align-items: center;
+    padding-block: clamp(3rem, 8vw, 5rem);
+  }
+
+  .hero__eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-3);
+    font-size: var(--text-xs);
+    font-weight: var(--font-weight-semibold);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(224, 37, 53, 0.85);
+    margin-bottom: var(--space-6);
+  }
+
+  .hero__eyebrow-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--color-primary);
+    box-shadow: 0 0 10px rgba(200, 32, 43, 0.65);
+    animation: pulse 2.5s ease infinite;
+    flex-shrink: 0;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.55; transform: scale(0.75); }
+  }
+
+  .hero__title {
+    font-size: clamp(2.25rem, 5.5vw, 4.5rem);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-white);
+    line-height: var(--leading-tight);
+    letter-spacing: -0.03em;
+    max-width: 16ch;
+    margin-bottom: var(--space-6);
+  }
+
+  .hero__subtitle {
+    font-size: clamp(var(--text-base), 1.6vw, var(--text-lg));
+    color: rgba(255, 255, 255, 0.5);
+    max-width: 48ch;
+    line-height: var(--leading-relaxed);
+    margin-bottom: var(--space-10);
+  }
+
+  .hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+  }
+
+  .hero__actions .btn { padding: 0.8125rem 1.875rem; }
+
+  /* Hero card */
+  .hero__card {
+    background: rgba(255, 255, 255, 0.025);
+    border: 1px solid rgba(255, 255, 255, 0.065);
+    border-radius: var(--radius-2xl);
+    padding: var(--space-8);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-5);
+  }
+
+  .hero__logo-display {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-6);
+    padding: var(--space-8) var(--space-6);
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: var(--radius-xl);
+  }
+
+  .hero__card-tagline {
+    font-size: var(--text-xs);
+    font-weight: var(--font-weight-semibold);
+    color: rgba(255, 255, 255, 0.28);
+    letter-spacing: 0.12em;
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  .hero__card-stats {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: var(--space-4) 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.055);
+  }
+
+  .hero__stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
+  }
+
+  .hero__stat-num {
+    font-size: var(--text-xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-white);
+    line-height: 1;
+    letter-spacing: -0.02em;
+  }
+
+  .hero__stat-label {
+    font-size: 0.59rem;
+    color: rgba(255, 255, 255, 0.3);
+    letter-spacing: 0.04em;
+    text-align: center;
+    text-transform: uppercase;
+    max-width: 10ch;
+  }
+
+  .hero__stat-sep {
+    width: 1px;
+    height: 30px;
+    background: rgba(255, 255, 255, 0.07);
+  }
+
+  /* Ticker */
+  .hero__ticker {
+    position: relative;
+    z-index: 1;
+    border-top: 1px solid rgba(255, 255, 255, 0.04);
+    background: rgba(255, 255, 255, 0.02);
+  }
+
+  .hero__ticker-inner {
+    display: flex;
+    align-items: center;
+    gap: var(--space-6);
+    padding-block: var(--space-4);
+    font-size: var(--text-xs);
+    color: rgba(255, 255, 255, 0.26);
+    font-weight: var(--font-weight-medium);
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  .hero__ticker-sep {
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.18);
+    flex-shrink: 0;
+  }
+
+  /* ---- About ---- */
+  .about-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(3rem, 7vw, 6rem);
+    align-items: center;
+  }
+
+  .about-p2 { margin-top: var(--space-4); }
+  .about-cta { margin-top: var(--space-8); }
+
+  .pillars {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+
+  .pillar {
+    display: flex;
+    align-items: stretch;
+    gap: var(--space-4);
+    padding: var(--space-5) var(--space-6);
+    background: var(--color-white);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-xs);
+    transition: all var(--transition-base);
+  }
+
+  .pillar:hover {
+    border-color: var(--color-neutral-300);
+    box-shadow: var(--shadow-md);
+    transform: translateX(6px);
+  }
+
+  .pillar__bar {
+    width: 3px;
+    border-radius: 2px;
+    flex-shrink: 0;
+  }
+
+  .pillar--red   .pillar__bar { background: var(--color-primary); }
+  .pillar--steel .pillar__bar { background: var(--color-steel); }
+  .pillar--neutral .pillar__bar { background: var(--color-neutral-300); }
+
+  .pillar__body {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+  }
+
+  .pillar__name {
+    font-size: var(--text-base);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-steel);
+    letter-spacing: -0.01em;
+  }
+
+  .pillar__desc {
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    line-height: var(--leading-snug);
+  }
+
+  /* ---- Services header row ---- */
+  .section-header-row {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: var(--space-8);
+    margin-bottom: var(--space-10);
+    flex-wrap: wrap;
+  }
+
+  .services-cta-link { flex-shrink: 0; }
+
+  /* ---- Values ---- */
+  .values-header { margin-bottom: var(--space-10); }
+
+  /* ---- CTA Band ---- */
+  .cta-band {
+    position: relative;
+    background-color: var(--color-navy);
+    padding-block: var(--space-24);
+    overflow: hidden;
+  }
+
+  .cta-band__bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 90% at 100% 50%, rgba(200, 32, 43, 0.07), transparent),
+      radial-gradient(ellipse 50% 60% at 0% 30%, rgba(47, 68, 104, 0.22), transparent);
+    pointer-events: none;
+  }
+
+  .cta-band__inner {
+    position: relative;
+    z-index: 1;
+    max-width: 620px;
+  }
+
+  .cta-label { color: rgba(224, 37, 53, 0.75); }
+  .cta-label::before { background: rgba(224, 37, 53, 0.75); }
+
+  .cta-band__title {
+    font-size: clamp(var(--text-2xl), 4vw, var(--text-4xl));
+    font-weight: var(--font-weight-bold);
+    color: var(--color-white);
+    line-height: var(--leading-tight);
+    letter-spacing: -0.02em;
+    margin-bottom: var(--space-5);
+  }
+
+  .cta-band__lead {
+    font-size: var(--text-lg);
+    color: rgba(255, 255, 255, 0.48);
+    line-height: var(--leading-relaxed);
+    max-width: 55ch;
+    margin-bottom: var(--space-8);
+  }
+
+  .cta-band__actions { display: flex; flex-wrap: wrap; gap: var(--space-3); }
+
+  /* ---- Responsive ---- */
+  @media (max-width: 960px) {
+    .hero__inner { grid-template-columns: 1fr; padding-block: var(--space-16) var(--space-8); }
+    .hero__card { display: none; }
+    .hero { min-height: auto; }
+    .about-layout { grid-template-columns: 1fr; gap: var(--space-10); }
+  }
+
+  @media (max-width: 640px) {
+    .hero__actions { flex-direction: column; }
+    .section-header-row { flex-direction: column; align-items: flex-start; }
+    .cta-band__actions { flex-direction: column; }
+    .cta-band__actions .btn { justify-content: center; }
+  }
+</style>

@@ -1,0 +1,83 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ServiceCard from '../components/ServiceCard.astro';
+import { getTranslations } from '../i18n/index';
+
+const t = getTranslations('es');
+---
+
+<Layout title={t.services.pageTitle} currentPath="/servicios">
+
+  <section class="page-hero">
+    <div class="container">
+      <span class="page-hero__label" data-i18n="services.pageLabel">{t.services.pageLabel}</span>
+      <h1 class="page-hero__title" data-i18n="services.pageTitle">{t.services.pageTitle}</h1>
+      <p class="page-hero__lead" data-i18n="services.pageLead">{t.services.pageLead}</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="services-grid">
+        <ServiceCard title={t.services.service1Title} description={t.services.service1Desc} items={t.services.service1Items} index={0} i18nTitle="services.service1Title" i18nDesc="services.service1Desc" i18nItems="services.service1Items" />
+        <ServiceCard title={t.services.service2Title} description={t.services.service2Desc} items={t.services.service2Items} index={1} i18nTitle="services.service2Title" i18nDesc="services.service2Desc" i18nItems="services.service2Items" />
+        <ServiceCard title={t.services.service3Title} description={t.services.service3Desc} items={t.services.service3Items} index={2} i18nTitle="services.service3Title" i18nDesc="services.service3Desc" i18nItems="services.service3Items" />
+        <ServiceCard title={t.services.service4Title} description={t.services.service4Desc} items={t.services.service4Items} index={3} i18nTitle="services.service4Title" i18nDesc="services.service4Desc" i18nItems="services.service4Items" />
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-surface">
+    <div class="container">
+      <div class="services-cta">
+        <div class="services-cta__content">
+          <h2 class="services-cta__title" data-i18n="services.contactCta">{t.services.contactCta}</h2>
+          <div class="services-cta__actions">
+            <a href="/contacto" class="btn btn--primary" data-i18n="nav.contact">{t.nav.contact}</a>
+            <a href={`mailto:${t.footer.email}`} class="btn btn--outline-dark">{t.footer.email}</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</Layout>
+
+<style>
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-8);
+  }
+
+  .services-cta {
+    padding: var(--space-10) var(--space-12);
+    background: var(--color-white);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-xl);
+  }
+
+  .services-cta__content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-8);
+    flex-wrap: wrap;
+  }
+
+  .services-cta__title {
+    font-size: var(--text-xl);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-steel);
+    max-width: 40ch;
+  }
+
+  .services-cta__actions { display: flex; gap: var(--space-4); flex-wrap: wrap; flex-shrink: 0; }
+
+  @media (max-width: 900px) { .services-grid { grid-template-columns: 1fr; } }
+  @media (max-width: 640px) {
+    .services-cta { padding: var(--space-6); }
+    .services-cta__actions { width: 100%; flex-direction: column; }
+    .services-cta__actions .btn { justify-content: center; }
+  }
+</style>

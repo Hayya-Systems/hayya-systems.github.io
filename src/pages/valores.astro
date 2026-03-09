@@ -1,0 +1,62 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ValueCard from '../components/ValueCard.astro';
+import { getTranslations } from '../i18n/index';
+
+const t = getTranslations('es');
+---
+
+<Layout title={t.values.pageTitle} currentPath="/valores">
+
+  <section class="page-hero">
+    <div class="container">
+      <span class="page-hero__label" data-i18n="values.pageLabel">{t.values.pageLabel}</span>
+      <h1 class="page-hero__title" data-i18n="values.pageTitle">{t.values.pageTitle}</h1>
+      <p class="page-hero__lead" data-i18n="values.pageLead">{t.values.pageLead}</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="grid-3">
+        <ValueCard title={t.values.value1Title} description={t.values.value1Desc} index={0} i18nTitle="values.value1Title" i18nDesc="values.value1Desc" />
+        <ValueCard title={t.values.value2Title} description={t.values.value2Desc} index={1} i18nTitle="values.value2Title" i18nDesc="values.value2Desc" />
+        <ValueCard title={t.values.value3Title} description={t.values.value3Desc} index={2} i18nTitle="values.value3Title" i18nDesc="values.value3Desc" />
+        <ValueCard title={t.values.value4Title} description={t.values.value4Desc} index={3} i18nTitle="values.value4Title" i18nDesc="values.value4Desc" />
+        <ValueCard title={t.values.value5Title} description={t.values.value5Desc} index={4} i18nTitle="values.value5Title" i18nDesc="values.value5Desc" />
+        <ValueCard title={t.values.value6Title} description={t.values.value6Desc} index={5} i18nTitle="values.value6Title" i18nDesc="values.value6Desc" />
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-surface">
+    <div class="container container--narrow">
+      <div class="values-close">
+        <hr class="divider divider--center" />
+        <p class="values-close__text">
+          Estos principios no son aspiracionales. Son estándares operativos que orientan cada entregable y cada relación con nuestros clientes.
+        </p>
+        <div class="values-close__links">
+          <a href="/mision" class="btn btn--outline-dark">{t.nav.mission}</a>
+          <a href="/vision"  class="btn btn--outline-dark">{t.nav.vision}</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</Layout>
+
+<style>
+  .values-close { text-align: center; padding: var(--space-8) 0; }
+
+  .values-close__text {
+    font-size: var(--text-lg);
+    color: var(--color-text-muted);
+    line-height: var(--leading-relaxed);
+    max-width: 55ch;
+    margin-inline: auto;
+    margin-bottom: var(--space-8);
+  }
+
+  .values-close__links { display: flex; gap: var(--space-4); justify-content: center; flex-wrap: wrap; }
+</style>

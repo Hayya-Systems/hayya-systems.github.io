@@ -1,0 +1,207 @@
+---
+import type { Translations } from '../i18n/types';
+
+interface Props {
+  t: Translations;
+}
+
+const { t } = Astro.props;
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="container">
+
+    <div class="footer-grid">
+
+      <div class="footer-brand">
+        <a href="/" class="footer-logo" aria-label={t.meta.siteName}>
+          <div class="footer-logo-pill">
+            <img
+              src="/Hayya.png"
+              alt="Hayya System"
+              class="footer-logo-img"
+              width="120"
+              height="36"
+            />
+          </div>
+        </a>
+        <p class="footer-tagline" data-i18n="footer.tagline">{t.footer.tagline}</p>
+        <p class="footer-description" data-i18n="meta.description">{t.meta.description}</p>
+      </div>
+
+      <div class="footer-col">
+        <h3 class="footer-col-title">Navegación</h3>
+        <ul class="footer-links" role="list">
+          <li><a href="/" class="footer-link" data-i18n="nav.home">{t.nav.home}</a></li>
+          <li><a href="/quienes-somos" class="footer-link" data-i18n="nav.about">{t.nav.about}</a></li>
+          <li><a href="/servicios" class="footer-link" data-i18n="nav.services">{t.nav.services}</a></li>
+          <li><a href="/valores" class="footer-link" data-i18n="nav.values">{t.nav.values}</a></li>
+          <li><a href="/mision" class="footer-link" data-i18n="nav.mission">{t.nav.mission}</a></li>
+          <li><a href="/vision" class="footer-link" data-i18n="nav.vision">{t.nav.vision}</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h3 class="footer-col-title">Empresa</h3>
+        <ul class="footer-links" role="list">
+          <li><a href="/empleos" class="footer-link" data-i18n="nav.careers">{t.nav.careers}</a></li>
+          <li><a href="/contacto" class="footer-link" data-i18n="nav.contact">{t.nav.contact}</a></li>
+          <li><a href="/privacidad" class="footer-link" data-i18n="nav.privacy">{t.nav.privacy}</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h3 class="footer-col-title" data-i18n="footer.contact">{t.footer.contact}</h3>
+        <ul class="footer-links" role="list">
+          <li>
+            <a href={`mailto:${t.footer.email}`} class="footer-link footer-email">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="2" y="4" width="20" height="16" rx="2"/>
+                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+              </svg>
+              {t.footer.email}
+            </a>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <p class="footer-legal" data-i18n="footer.allRightsReserved">
+        {t.footer.allRightsReserved.replace('2025', String(year))}
+      </p>
+      <a href="/privacidad" class="footer-privacy-link" data-i18n="footer.privacyPolicy">{t.footer.privacyPolicy}</a>
+    </div>
+
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    background-color: var(--color-navy);
+    padding-top: var(--space-16);
+    padding-bottom: var(--space-8);
+    border-top: 1px solid rgba(255, 255, 255, 0.04);
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1.4fr;
+    gap: var(--space-12);
+    padding-bottom: var(--space-12);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  /* Brand */
+  .footer-logo {
+    display: inline-flex;
+    align-items: center;
+    margin-bottom: var(--space-5);
+    transition: opacity var(--transition-fast);
+  }
+  .footer-logo:hover { opacity: 0.82; }
+
+  .footer-logo-pill {
+    background: var(--color-white);
+    border-radius: 8px;
+    padding: 4px 10px;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .footer-logo-img {
+    height: 30px;
+    width: auto;
+    display: block;
+    object-fit: contain;
+  }
+
+  .footer-tagline {
+    font-size: var(--text-xs);
+    font-weight: var(--font-weight-semibold);
+    color: rgba(255, 255, 255, 0.35);
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    margin-bottom: var(--space-4);
+  }
+
+  .footer-description {
+    font-size: var(--text-sm);
+    color: rgba(255, 255, 255, 0.3);
+    line-height: var(--leading-relaxed);
+    max-width: 30ch;
+  }
+
+  /* Columns */
+  .footer-col-title {
+    font-size: var(--text-xs);
+    font-weight: var(--font-weight-semibold);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.25);
+    margin-bottom: var(--space-5);
+  }
+
+  .footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .footer-link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: var(--text-sm);
+    color: rgba(255, 255, 255, 0.45);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+  }
+
+  .footer-link:hover { color: rgba(255, 255, 255, 0.82); }
+
+  .footer-email { word-break: break-all; }
+
+  /* Bottom */
+  .footer-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: var(--space-8);
+    gap: var(--space-4);
+    flex-wrap: wrap;
+  }
+
+  .footer-legal {
+    font-size: var(--text-xs);
+    color: rgba(255, 255, 255, 0.22);
+  }
+
+  .footer-privacy-link {
+    font-size: var(--text-xs);
+    color: rgba(255, 255, 255, 0.25);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+  }
+  .footer-privacy-link:hover { color: rgba(255, 255, 255, 0.55); }
+
+  /* Responsive */
+  @media (max-width: 1024px) {
+    .footer-grid {
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-10);
+    }
+    .footer-brand { grid-column: 1 / -1; }
+    .footer-description { max-width: none; }
+  }
+
+  @media (max-width: 640px) {
+    .footer-grid { grid-template-columns: 1fr; gap: var(--space-8); }
+    .footer-bottom { flex-direction: column; align-items: flex-start; gap: var(--space-3); }
+  }
+</style>

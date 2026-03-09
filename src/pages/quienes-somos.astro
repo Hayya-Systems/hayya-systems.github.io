@@ -1,0 +1,157 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { getTranslations } from '../i18n/index';
+
+const t = getTranslations('es');
+---
+
+<Layout title={t.about.pageTitle} currentPath="/quienes-somos">
+
+  <section class="page-hero">
+    <div class="container">
+      <span class="page-hero__label" data-i18n="about.pageLabel">{t.about.pageLabel}</span>
+      <h1 class="page-hero__title" data-i18n="about.pageTitle">{t.about.pageTitle}</h1>
+      <p class="page-hero__lead" data-i18n="about.pageLead">{t.about.pageLead}</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="about-blocks">
+
+        <div class="block">
+          <div class="block__num" aria-hidden="true">01</div>
+          <div class="block__body">
+            <h2 class="block__title" data-i18n="about.block1Title">{t.about.block1Title}</h2>
+            <p class="block__text" data-i18n="about.block1Text">{t.about.block1Text}</p>
+          </div>
+        </div>
+        <hr class="block-sep" />
+
+        <div class="block">
+          <div class="block__num" aria-hidden="true">02</div>
+          <div class="block__body">
+            <h2 class="block__title" data-i18n="about.block2Title">{t.about.block2Title}</h2>
+            <p class="block__text" data-i18n="about.block2Text">{t.about.block2Text}</p>
+          </div>
+        </div>
+        <hr class="block-sep" />
+
+        <div class="block">
+          <div class="block__num" aria-hidden="true">03</div>
+          <div class="block__body">
+            <h2 class="block__title" data-i18n="about.block3Title">{t.about.block3Title}</h2>
+            <p class="block__text" data-i18n="about.block3Text">{t.about.block3Text}</p>
+          </div>
+        </div>
+        <hr class="block-sep" />
+
+        <div class="block">
+          <div class="block__num" aria-hidden="true">04</div>
+          <div class="block__body">
+            <h2 class="block__title" data-i18n="about.block4Title">{t.about.block4Title}</h2>
+            <p class="block__text" data-i18n="about.block4Text">{t.about.block4Text}</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-surface">
+    <div class="container">
+      <div class="page-links">
+        <a href="/servicios" class="page-link">
+          <span>{t.nav.services}</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </a>
+        <a href="/valores" class="page-link">
+          <span>{t.nav.values}</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </a>
+        <a href="/contacto" class="page-link">
+          <span>{t.nav.contact}</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</Layout>
+
+<style>
+  .about-blocks { max-width: 840px; display: flex; flex-direction: column; gap: 0; }
+
+  .block {
+    display: grid;
+    grid-template-columns: 72px 1fr;
+    gap: var(--space-8);
+    align-items: start;
+    padding-block: var(--space-10);
+  }
+
+  .block__num {
+    font-size: var(--text-xs);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-primary);
+    letter-spacing: 0.1em;
+    opacity: 0.55;
+    padding-top: 4px;
+  }
+
+  .block__title {
+    font-size: var(--text-2xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-steel);
+    margin-bottom: var(--space-4);
+    line-height: var(--leading-snug);
+  }
+
+  .block__text {
+    font-size: var(--text-lg);
+    color: var(--color-text-muted);
+    line-height: var(--leading-relaxed);
+    max-width: 65ch;
+  }
+
+  .block-sep {
+    height: 1px;
+    background: var(--color-border);
+    border: none;
+    margin-left: 72px;
+  }
+
+  .page-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-4);
+  }
+
+  .page-link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-3);
+    padding: var(--space-4) var(--space-6);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    background: var(--color-white);
+    color: var(--color-steel);
+    font-size: var(--text-sm);
+    font-weight: var(--font-weight-medium);
+    text-decoration: none;
+    transition: all var(--transition-base);
+  }
+
+  .page-link:hover {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+    box-shadow: var(--shadow-sm);
+    transform: translateY(-1px);
+  }
+
+  @media (max-width: 640px) {
+    .block { grid-template-columns: 1fr; gap: var(--space-3); }
+    .block__num { display: none; }
+    .block-sep { margin-left: 0; }
+  }
+</style>

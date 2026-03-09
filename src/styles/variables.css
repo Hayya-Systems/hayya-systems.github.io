@@ -1,0 +1,117 @@
+/* ===================================================
+   Hayya System — Design Tokens
+   Colors calibrated to the official logo.
+   =================================================== */
+
+:root {
+  /* Brand Red — matches "HAYYA" logotype */
+  --color-primary:        #C8202B;
+  --color-primary-dark:   #A01820;
+  --color-primary-light:  #E02535;
+  --color-primary-subtle: rgba(200, 32, 43, 0.08);
+
+  /* Brand Steel Blue — matches "SYSTEM" logotype */
+  --color-steel:          #243550;
+  --color-steel-mid:      #2F4468;
+  --color-steel-light:    #3D5780;
+
+  /* Deep Navy — backgrounds, hero, header */
+  --color-navy:           #080F1C;
+  --color-navy-mid:       #0F1D30;
+  --color-navy-light:     #162438;
+
+  /* Neutrals */
+  --color-white:          #FFFFFF;
+  --color-neutral-50:     #F7F8FA;
+  --color-neutral-100:    #EDEEF2;
+  --color-neutral-200:    #E0E2E8;
+  --color-neutral-300:    #C8CBD6;
+  --color-neutral-400:    #9CA3AF;
+  --color-neutral-500:    #6B7280;
+  --color-neutral-600:    #4B5563;
+  --color-neutral-700:    #374151;
+  --color-neutral-800:    #1F2937;
+  --color-neutral-900:    #111827;
+
+  /* Semantic */
+  --color-text:           #111827;
+  --color-text-muted:     #4B5563;
+  --color-text-light:     #9CA3AF;
+  --color-border:         #E5E7EB;
+  --color-border-subtle:  #F0F1F4;
+  --color-surface:        #F7F8FA;
+
+  /* Typography */
+  --font-display: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-sans:    'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-weight-regular:  400;
+  --font-weight-medium:   500;
+  --font-weight-semibold: 600;
+  --font-weight-bold:     700;
+
+  /* Type Scale */
+  --text-xs:    0.6875rem;
+  --text-sm:    0.8125rem;
+  --text-base:  1rem;
+  --text-lg:    1.125rem;
+  --text-xl:    1.25rem;
+  --text-2xl:   1.5rem;
+  --text-3xl:   1.875rem;
+  --text-4xl:   2.375rem;
+  --text-5xl:   3rem;
+  --text-6xl:   3.875rem;
+
+  /* Line Heights */
+  --leading-tight:   1.15;
+  --leading-snug:    1.3;
+  --leading-normal:  1.5;
+  --leading-relaxed: 1.7;
+
+  /* Spacing — 8px base */
+  --space-1:  0.25rem;
+  --space-2:  0.5rem;
+  --space-3:  0.75rem;
+  --space-4:  1rem;
+  --space-5:  1.25rem;
+  --space-6:  1.5rem;
+  --space-8:  2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+  --space-24: 6rem;
+  --space-32: 8rem;
+
+  /* Layout */
+  --max-width:         1200px;
+  --max-width-narrow:  760px;
+  --max-width-wide:    1440px;
+  --container-padding: clamp(1.25rem, 5vw, 2.5rem);
+
+  /* Borders */
+  --radius-xs:  0.1875rem;
+  --radius-sm:  0.3125rem;
+  --radius-md:  0.5rem;
+  --radius-lg:  0.875rem;
+  --radius-xl:  1.25rem;
+  --radius-2xl: 1.75rem;
+
+  /* Shadows */
+  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.06);
+  --shadow-sm: 0 1px 4px rgba(0, 0, 0, 0.07), 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.09), 0 2px 6px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 12px 40px rgba(0, 0, 0, 0.12), 0 4px 12px rgba(0, 0, 0, 0.07);
+  --shadow-xl: 0 24px 64px rgba(0, 0, 0, 0.16);
+
+  /* Transitions */
+  --transition-fast: 120ms ease;
+  --transition-base: 220ms ease;
+  --transition-slow: 380ms ease;
+
+  /* Z-index layers */
+  --z-raised:   10;
+  --z-dropdown: 100;
+  --z-sticky:   200;
+  --z-overlay:  300;
+  --z-modal:    400;
+}

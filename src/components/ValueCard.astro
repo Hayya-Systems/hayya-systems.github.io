@@ -1,0 +1,74 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  index?: number;
+  i18nTitle?: string;
+  i18nDesc?: string;
+}
+
+const { title, description, index = 0, i18nTitle, i18nDesc } = Astro.props;
+---
+
+<article class="value-card">
+  <span class="value-card__num" aria-hidden="true">0{index + 1}</span>
+  <h3 class="value-card__title" data-i18n={i18nTitle}>{title}</h3>
+  <p class="value-card__desc" data-i18n={i18nDesc}>{description}</p>
+</article>
+
+<style>
+  .value-card {
+    position: relative;
+    padding: var(--space-8);
+    border-radius: var(--radius-xl);
+    border: 1px solid var(--color-border);
+    background-color: var(--color-white);
+    transition: all var(--transition-base);
+    overflow: hidden;
+  }
+
+  .value-card::before {
+    content: '';
+    position: absolute;
+    bottom: 0; right: 0;
+    width: 80px; height: 80px;
+    background: radial-gradient(circle at bottom right, rgba(200, 32, 43, 0.04), transparent 75%);
+    pointer-events: none;
+    transition: opacity var(--transition-base);
+  }
+
+  .value-card:hover {
+    border-color: rgba(200, 32, 43, 0.15);
+    box-shadow: 0 8px 32px rgba(200, 32, 43, 0.06), var(--shadow-sm);
+    transform: translateY(-3px);
+  }
+
+  .value-card:hover::before { opacity: 3; }
+
+  .value-card__num {
+    display: inline-block;
+    font-size: var(--text-xs);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-primary);
+    letter-spacing: 0.08em;
+    margin-bottom: var(--space-4);
+    opacity: 0.5;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .value-card__title {
+    font-size: var(--text-lg);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-steel);
+    margin-bottom: var(--space-3);
+    line-height: var(--leading-snug);
+    letter-spacing: -0.015em;
+  }
+
+  .value-card__desc {
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    line-height: var(--leading-relaxed);
+    margin: 0;
+  }
+</style>
